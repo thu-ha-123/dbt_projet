@@ -8,4 +8,7 @@ packages:
   - git: https://github.com/dbt-labs/dbt-codegen.git
     name: codegen
     revision: db1b3a968318947dedaa91b489422058697f2bb7
-sha1_hash: 2578ecf730d9f8cc981cbba34fa2e83a21330e79
+  - name: snowflake_spend
+    package: gitlabhq/snowflake_spend
+    version: 1.4.0
+sha1_hash: 30dc6676bcda8858b13b8dfc820e64fdfd8a6fe4

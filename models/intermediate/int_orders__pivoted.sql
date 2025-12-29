@@ -15,8 +15,7 @@ with payments as (
                 {%- endif -%}
                 
             {%- endfor -%}
-    
-    
+
     from payments
     group by 1
 )
