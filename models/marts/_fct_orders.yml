@@ -2,6 +2,8 @@ models:
 - name: fct_orders
   latest_version: 1 ##Call out which version will be the default version when running this model
   config:
+    group: finance
+    access: public
     contract:
       enforced: true
   columns:
@@ -30,4 +32,5 @@ models:
           data_type: number
         - include: all # Include all other fields
           exclude: [amount] # But removes the old name of total_amount
+
 
