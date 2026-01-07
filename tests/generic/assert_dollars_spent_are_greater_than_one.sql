@@ -4,7 +4,7 @@
         {{ group_by_column }}, 
         avg( {{ column_name }}) as average_amount
     from {{ model }}
-    group by 1
-    having average_amount < 1
+    group by {{ group_by_column }}
+    having avg( {{ column_name }}) < 1
 
 {% endtest %}

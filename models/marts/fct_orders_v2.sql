@@ -2,7 +2,7 @@
 {{
     config(
         materialized='incremental',
-        on_schema_change='fail',
+        on_schema_change='append_new_columns',
         unique_key = 'order_id',
         incremental_strategy = 'merge',
     )
@@ -27,7 +27,7 @@ order_payments as (
 final as (
     select
         cast(orders.order_id as text) as order_id,
-        cast(orders.customer_id as text) as customer_id ,
+        orders.customer_id,
         orders.order_placed_at,
         coalesce(order_payments.amount, 0) as total_amount
     from orders 
