@@ -1,5 +1,6 @@
 models:
 - name: fct_orders
+  description: Order overview data mart, offering key details for each order. One row per order.
   latest_version: 1 ##Call out which version will be the default version when running this model
   config:
     group: finance
@@ -8,6 +9,7 @@ models:
       enforced: true
   columns:
     - name: order_id
+      description: The unique key of the orders mart
       data_type: number
       constraints:
         - type: not_null

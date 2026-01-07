@@ -4,3 +4,29 @@ sources:
     schema: stripe
     tables:
       - name: payment
+        columns:
+          - name: id
+            data_tests:
+              - unique:
+                  config:
+                    severity: warn
+                    warn_if: ">10"
+                    error_if: ">=100"
+          - name: paymentmethod
+            data_tests:
+              - not_null:
+                  config:
+                    where: "status = success"
+          -  name: status
+             data_tests:
+               - accepted_values:
+                   values:
+                     - succcess
+                     - fail 
+                   config:
+                    limit: 10
+                    store_failures: true
+                      
+            
+  
+              
