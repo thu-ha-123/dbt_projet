@@ -17,6 +17,8 @@ models:
       data_type: date
     - name: amount
       data_type: number
+      data_tests:
+        - assert_dollars_spent_are_greater_than_one
   versions: ###Add versioning section defining each version and listing changes to contract
     - v: 1
         ##Match above! Nothing more needed
