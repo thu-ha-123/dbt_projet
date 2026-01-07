@@ -1,5 +1,6 @@
 models:
 - name: fct_orders
+  description: Order overview data mart, offering key details for each order. One row per order.
   latest_version: 1 ##Call out which version will be the default version when running this model
   config:
     group: finance
@@ -8,15 +9,23 @@ models:
       enforced: true
   columns:
     - name: order_id
+      description: The unique key of the orders mart
       data_type: number
       constraints:
         - type: not_null
+      data_tests:
+        - dbt_utils.cardinality_equality:
+            field: order_id
+            to: ref('stg_jaffle_shop__orders')
     - name: customer_id
       data_type: number
     - name: order_placed_at
       data_type: date
     - name: amount
       data_type: number
+      data_tests:
+        - assert_dollars_spent_are_greater_than_one:
+            group_by_column : customer_id
   versions: ###Add versioning section defining each version and listing changes to contract
     - v: 1
         ##Match above! Nothing more needed
@@ -25,8 +34,6 @@ models:
     - v: 2
       columns:
         - name: order_id  ##v2 Date type change
-          data_type: text
-        - name: customer_id ##v2 Date type change
           data_type: text
         - name: total_amount ##v2 Adds in new Column name
           data_type: number
