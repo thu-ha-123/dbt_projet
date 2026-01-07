@@ -26,10 +26,10 @@ order_payments as (
 ), 
 final as (
     select
-        orders.order_id,
-        orders.customer_id,
+        cast(orders.order_id as text) as order_id,
+        cast(orders.customer_id as text) as customer_id ,
         orders.order_placed_at,
-        coalesce(order_payments.amount, 0) as amount
+        coalesce(order_payments.amount, 0) as total_amount
     from orders 
     left join order_payments using (order_id)
 )
