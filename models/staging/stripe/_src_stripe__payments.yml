@@ -21,7 +21,7 @@ sources:
              data_tests:
                - accepted_values:
                    values:
-                     - succcess
+                     - success
                      - fail 
                    config:
                     limit: 10

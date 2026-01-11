@@ -28,6 +28,7 @@ final as (
     select
         orders.order_id,
         orders.customer_id,
+        -- adusting fct_orders
         orders.order_placed_at,
         coalesce(order_payments.amount, 0) as amount
     from orders 
