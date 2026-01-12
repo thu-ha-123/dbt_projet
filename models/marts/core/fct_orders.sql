@@ -2,11 +2,7 @@
 {{
     config(
         materialized='incremental',
-<<<<<<< HEAD
         on_schema_change='append_new_columns',
-=======
-        on_schema_change='sync_all_columns',
->>>>>>> bc35c0a0434a1e34f86cb2bdfd31119af6dd921a
         unique_key = 'order_id',
         incremental_strategy = 'merge',
     )
