@@ -15,8 +15,9 @@ models:
         - type: not_null
       data_tests:
         - dbt_utils.cardinality_equality:
-            field: order_id
-            to: ref('stg_jaffle_shop__orders')
+            arguments:
+              field: order_id
+              to: ref('stg_jaffle_shop__orders')
     - name: customer_id
       data_type: number
     - name: order_placed_at
