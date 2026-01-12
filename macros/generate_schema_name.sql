@@ -2,11 +2,10 @@
 
     {%- set default_schema = target.schema -%}
     {%- if custom_schema_name is none -%}
-
+       
         {{ default_schema }}
 
-    -- if we are in prod
-        -- then we just want custom_schema_name
+ {# if we are in prod then we just want custom_schema_name #} 
 
     {%- elif env_var('DBT_MY_ENV','') == 'prod' -%}
 

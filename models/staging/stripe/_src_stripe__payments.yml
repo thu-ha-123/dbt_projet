@@ -16,7 +16,7 @@ sources:
             data_tests:
               - not_null:
                   config:
-                    where: "status = success"
+                    where: "status = 'success' "
           -  name: status
              data_tests:
                - accepted_values:
