@@ -3,7 +3,6 @@ groups:
   owner: 
     name: Tom Johnson
     email: finance@jaffleshop.com
-    slack: finance-data
     
 - name: product
   owner:
